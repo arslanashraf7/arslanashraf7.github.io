@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-12-07T04:45:15+05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Arslan’s Blogs</title><subtitle>This is the Github hosted page of the listing of all my blogs.</subtitle><entry><title type="html">Customizing Zendesk Theme</title><link href="http://localhost:4000/jekyll/update/2021/12/07/customizing-zendesk-theme.html" rel="alternate" type="text/html" title="Customizing Zendesk Theme" /><published>2021-12-07T03:53:01+05:00</published><updated>2021-12-07T03:53:01+05:00</updated><id>http://localhost:4000/jekyll/update/2021/12/07/customizing-zendesk-theme</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/12/07/customizing-zendesk-theme.html">&lt;p&gt;You might have been in a situation where you wanted to customize your Zendesk Help Center but you were not fully able to do that using the built-in customizations mentioned in &lt;a href=&quot;https://support.zendesk.com/hc/en-us/articles/4408839332250-Customizing-your-help-center-theme&quot;&gt;Customizing your help center theme&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I’m going to provide a list of stemps that you can follow to customize your own zendesk themes.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Clone the Zendesk’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Copenhagen&lt;/code&gt; theme &lt;a href=&quot;https://github.com/zendesk/copenhagen_theme&quot;&gt;repository&lt;/a&gt; (This repository contain all the basic structure needed for the theme)&lt;/li&gt;
+  &lt;li&gt;Setup a trial instance
+    &lt;ul&gt;
+      &lt;li&gt;Create a trial account on &lt;a href=&quot;https://www.zendesk.com/&quot;&gt;Zendesk&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Create a Sandbox on existing Zendesk account following &lt;a href=&quot;https://support.zendesk.com/hc/en-us/articles/4408828617370-Testing-changes-in-your-standard-sandbox&quot;&gt;this link&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Make sure to opt. In for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Zendesk Guide&lt;/code&gt; integration once you’ve created an account (This step might require you to confirm through email again)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;After the setup and account confirmations go to &lt;a href=&quot;https://&amp;lt;YOUR_ZENDESK_DOMAIN&amp;gt;/agent/admin/api/settings&quot;&gt;Admin Settings&lt;/a&gt; (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Admin-&amp;gt;APIs-&amp;gt; Generate Token&lt;/code&gt;) and generate an API token that you’ll need to publish local theme changes on you Zendesk domain.&lt;/li&gt;
+  &lt;li&gt;Go to &lt;a href=&quot;https://&amp;lt;YOUR_ZENDESK_DOMAIN&amp;gt;/theming/workbench&quot;&gt;Workbench&lt;/a&gt; and check your theme (By default it should be a Copenhagen theme)&lt;/li&gt;
+  &lt;li&gt;Enable Help Center for your account by visiting &lt;a href=&quot;https://&amp;lt;YOUR_ZENDESK_DOMAIN&amp;gt;/hc/admin/general_settings&quot;&gt;General Settings&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Running&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;theme&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;locally&lt;/span&gt;
+ 
+&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Create&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;zat&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;your&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;local&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;theme&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;directory&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;It&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;should&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;look&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;below&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;subdomain&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;YOUR_ZENDESK_SUBDOMAIN&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;username&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;ACCOUNT_EMAIL&amp;gt;/token&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;password&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;“&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;GENERATED_TOKEN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;”&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;zat_latest&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;3.8.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;zat_update_check&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;2021-02-16&quot;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Follow this link to install ZAT https://support.zendesk.com/hc/en-us/articles/4408822095642&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;To install packages yarn install&lt;/li&gt;
+  &lt;li&gt;To build Css/style files &amp;amp; assets ./bin/compile.rb&lt;/li&gt;
+  &lt;li&gt;To run your theme preview zat theme preview (This is temporary deployment and will end once your local zat server stops)&lt;/li&gt;
+  &lt;li&gt;To create an uploadable bundle&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Cd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;zip&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;ZIP_FILE_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;zip&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;YOUR_THEME_DIRECTORY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;*/node_modules/*&quot;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;To&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;upload&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;permanent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;them&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Go&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;YOUR_ZENDESK_DOMAIN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/theming/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;workbench&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;upload&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;your&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;created&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;zip&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;click&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;menu&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;General Representations&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I’ll add a couple of examples about the content of the theme and how to change that&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;For all the frontend related changes you’d find HandleBar files(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*.hbs&lt;/code&gt;) in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/templates&lt;/code&gt; directory and (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_*.scss&lt;/code&gt;) files in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/styles&lt;/code&gt; directory e.g. if you’d want to change things in footer you’ll have to change the contents of (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;footer.hbs &amp;amp; _footer.scss&lt;/code&gt;) respectively&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;For adding new type of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;settings/variables&lt;/code&gt; you need to make changes in (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;manifest.json&lt;/code&gt; - For adding a new key/value) and (en-us.json - For adding a description of how it’s presented on the Zendesk admin panel)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;For adding new assets and using them through settings you will add th assets file in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;THEME_DIR/settings&amp;gt;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">You might have been in a situation where you wanted to customize your Zendesk Help Center but you were not fully able to do that using the built-in customizations mentioned in Customizing your help center theme</summary></entry></feed>

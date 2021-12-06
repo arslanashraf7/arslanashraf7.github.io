@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Customizing Zendesk Theme | Arslan’s Blogs</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Customizing Zendesk Theme" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="You might have been in a situation where you wanted to customize your Zendesk Help Center but you were not fully able to do that using the built-in customizations mentioned in Customizing your help center theme" />
+<meta property="og:description" content="You might have been in a situation where you wanted to customize your Zendesk Help Center but you were not fully able to do that using the built-in customizations mentioned in Customizing your help center theme" />
+<link rel="canonical" href="http://localhost:4000/jekyll/update/2021/12/07/customizing-zendesk-theme.html" />
+<meta property="og:url" content="http://localhost:4000/jekyll/update/2021/12/07/customizing-zendesk-theme.html" />
+<meta property="og:site_name" content="Arslan’s Blogs" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-12-07T03:53:01+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Customizing Zendesk Theme" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/jekyll/update/2021/12/07/customizing-zendesk-theme.html","headline":"Customizing Zendesk Theme","dateModified":"2021-12-07T03:53:01+05:00","datePublished":"2021-12-07T03:53:01+05:00","description":"You might have been in a situation where you wanted to customize your Zendesk Help Center but you were not fully able to do that using the built-in customizations mentioned in Customizing your help center theme","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/update/2021/12/07/customizing-zendesk-theme.html"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Arslan's Blogs" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Arslan&#39;s Blogs</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Customizing Zendesk Theme</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-12-07T03:53:01+05:00" itemprop="datePublished">Dec 7, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>You might have been in a situation where you wanted to customize your Zendesk Help Center but you were not fully able to do that using the built-in customizations mentioned in <a href="https://support.zendesk.com/hc/en-us/articles/4408839332250-Customizing-your-help-center-theme">Customizing your help center theme</a></p>
+
+<p>I’m going to provide a list of stemps that you can follow to customize your own zendesk themes.</p>
+
+<ul>
+  <li>Clone the Zendesk’s <code class="language-plaintext highlighter-rouge">Copenhagen</code> theme <a href="https://github.com/zendesk/copenhagen_theme">repository</a> (This repository contain all the basic structure needed for the theme)</li>
+  <li>Setup a trial instance
+    <ul>
+      <li>Create a trial account on <a href="https://www.zendesk.com/">Zendesk</a></li>
+      <li>Create a Sandbox on existing Zendesk account following <a href="https://support.zendesk.com/hc/en-us/articles/4408828617370-Testing-changes-in-your-standard-sandbox">this link</a></li>
+      <li>Make sure to opt. In for <code class="language-plaintext highlighter-rouge">Zendesk Guide</code> integration once you’ve created an account (This step might require you to confirm through email again)</li>
+    </ul>
+  </li>
+  <li>After the setup and account confirmations go to <a href="https://&lt;YOUR_ZENDESK_DOMAIN&gt;/agent/admin/api/settings">Admin Settings</a> (<code class="language-plaintext highlighter-rouge">Admin-&gt;APIs-&gt; Generate Token</code>) and generate an API token that you’ll need to publish local theme changes on you Zendesk domain.</li>
+  <li>Go to <a href="https://&lt;YOUR_ZENDESK_DOMAIN&gt;/theming/workbench">Workbench</a> and check your theme (By default it should be a Copenhagen theme)</li>
+  <li>Enable Help Center for your account by visiting <a href="https://&lt;YOUR_ZENDESK_DOMAIN&gt;/hc/admin/general_settings">General Settings</a></li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Running</span> <span class="n">the</span> <span class="n">theme</span> <span class="n">locally</span>
+ 
+<span class="mi">1</span><span class="o">-</span> <span class="no">Create</span> <span class="n">a</span> <span class="p">.</span><span class="nf">zat</span> <span class="n">file</span> <span class="k">in</span> <span class="n">your</span> <span class="n">local</span> <span class="n">theme</span> <span class="n">directory</span> <span class="p">(</span><span class="no">It</span> <span class="n">should</span> <span class="n">look</span> <span class="n">like</span> <span class="n">below</span><span class="p">)</span>
+  <span class="p">{</span>
+      <span class="s2">"subdomain"</span><span class="p">:</span> <span class="s2">"&lt;YOUR_ZENDESK_SUBDOMAIN&gt;"</span><span class="p">,</span>
+      <span class="s2">"username"</span><span class="p">:</span> <span class="s2">"&lt;ACCOUNT_EMAIL&gt;/token"</span><span class="p">,</span>
+      <span class="s2">"password"</span><span class="p">:</span> <span class="err">“</span><span class="o">&lt;</span><span class="no">GENERATED_TOKEN</span><span class="o">&gt;</span><span class="err">”</span><span class="p">,</span>
+      <span class="s2">"zat_latest"</span><span class="p">:</span> <span class="s2">"3.8.1"</span><span class="p">,</span>
+      <span class="s2">"zat_update_check"</span><span class="p">:</span> <span class="s2">"2021-02-16"</span>
+  <span class="p">}</span></code></pre></figure>
+
+<p>Follow this link to install ZAT https://support.zendesk.com/hc/en-us/articles/4408822095642</p>
+
+<ul>
+  <li>To install packages yarn install</li>
+  <li>To build Css/style files &amp; assets ./bin/compile.rb</li>
+  <li>To run your theme preview zat theme preview (This is temporary deployment and will end once your local zat server stops)</li>
+  <li>To create an uploadable bundle</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Cd</span> <span class="o">..</span>
+<span class="n">zip</span> <span class="o">-</span><span class="n">vr</span> <span class="o">&lt;</span><span class="no">ZIP_FILE_NAME</span><span class="o">&gt;</span><span class="p">.</span><span class="nf">zip</span> <span class="o">&lt;</span><span class="no">YOUR_THEME_DIRECTORY</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">x</span> <span class="s2">"*/node_modules/*"</span>
+<span class="no">To</span> <span class="n">upload</span> <span class="n">a</span> <span class="n">permanent</span> <span class="n">them</span><span class="p">,</span> <span class="no">Go</span> <span class="n">to</span> <span class="n">https</span><span class="ss">:/</span><span class="o">/&lt;</span><span class="no">YOUR_ZENDESK_DOMAIN</span><span class="o">&gt;</span><span class="sr">/theming/</span><span class="n">workbench</span> <span class="n">and</span> <span class="n">upload</span> <span class="n">your</span> <span class="n">created</span> <span class="p">.</span><span class="nf">zip</span> <span class="n">file</span> <span class="o">&amp;</span> <span class="n">click</span> <span class="kp">public</span> <span class="k">in</span> <span class="n">the</span> <span class="n">menu</span></code></pre></figure>
+
+<p><strong>General Representations</strong></p>
+
+<p>I’ll add a couple of examples about the content of the theme and how to change that</p>
+
+<ul>
+  <li>
+    <p>For all the frontend related changes you’d find HandleBar files(<code class="language-plaintext highlighter-rouge">*.hbs</code>) in <code class="language-plaintext highlighter-rouge">/templates</code> directory and (<code class="language-plaintext highlighter-rouge">_*.scss</code>) files in <code class="language-plaintext highlighter-rouge">/styles</code> directory e.g. if you’d want to change things in footer you’ll have to change the contents of (<code class="language-plaintext highlighter-rouge">footer.hbs &amp; _footer.scss</code>) respectively</p>
+  </li>
+  <li>
+    <p>For adding new type of <code class="language-plaintext highlighter-rouge">settings/variables</code> you need to make changes in (<code class="language-plaintext highlighter-rouge">manifest.json</code> - For adding a new key/value) and (en-us.json - For adding a description of how it’s presented on the Zendesk admin panel)</p>
+  </li>
+  <li>
+    <p>For adding new assets and using them through settings you will add th assets file in <code class="language-plaintext highlighter-rouge">&lt;THEME_DIR/settings&gt;</code></p>
+  </li>
+</ul>
+
+  </div><a class="u-url" href="/jekyll/update/2021/12/07/customizing-zendesk-theme.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Arslan&#39;s Blogs</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Arslan&#39;s Blogs</li><li><a class="u-email" href="mailto:arslanashraf051@gmail.com">arslanashraf051@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>This is the Github hosted page of the listing of all my blogs.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

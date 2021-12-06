@@ -1,0 +1,58 @@
+I"t<p>You might have been in a situation where you wanted to customize your Zendesk Help Center but you were not fully able to do that using the built-in customizations mentioned in <a href="https://support.zendesk.com/hc/en-us/articles/4408839332250-Customizing-your-help-center-theme">Customizing your help center theme</a></p>
+
+<p>I’m going to provide a list of stemps that you can follow to customize your own zendesk themes.</p>
+
+<ul>
+  <li>Clone the Zendesk’s <code class="language-plaintext highlighter-rouge">Copenhagen</code> theme <a href="https://github.com/zendesk/copenhagen_theme">repository</a> (This repository contain all the basic structure needed for the theme)</li>
+  <li>Setup a trial instance
+    <ul>
+      <li>Create a trial account on <a href="https://www.zendesk.com/">Zendesk</a></li>
+      <li>Create a Sandbox on existing Zendesk account following <a href="https://support.zendesk.com/hc/en-us/articles/4408828617370-Testing-changes-in-your-standard-sandbox">this link</a></li>
+      <li>Make sure to opt. In for <code class="language-plaintext highlighter-rouge">Zendesk Guide</code> integration once you’ve created an account (This step might require you to confirm through email again)</li>
+    </ul>
+  </li>
+  <li>After the setup and account confirmations go to <a href="https://&lt;YOUR_ZENDESK_DOMAIN&gt;/agent/admin/api/settings">Admin Settings</a> (<code class="language-plaintext highlighter-rouge">Admin-&gt;APIs-&gt; Generate Token</code>) and generate an API token that you’ll need to publish local theme changes on you Zendesk domain.</li>
+  <li>Go to <a href="https://&lt;YOUR_ZENDESK_DOMAIN&gt;/theming/workbench">Workbench</a> and check your theme (By default it should be a Copenhagen theme)</li>
+  <li>Enable Help Center for your account by visiting <a href="https://&lt;YOUR_ZENDESK_DOMAIN&gt;/hc/admin/general_settings">General Settings</a></li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Running</span> <span class="n">the</span> <span class="n">theme</span> <span class="n">locally</span>
+ 
+<span class="mi">1</span><span class="o">-</span> <span class="no">Create</span> <span class="n">a</span> <span class="p">.</span><span class="nf">zat</span> <span class="n">file</span> <span class="k">in</span> <span class="n">your</span> <span class="n">local</span> <span class="n">theme</span> <span class="n">directory</span> <span class="p">(</span><span class="no">It</span> <span class="n">should</span> <span class="n">look</span> <span class="n">like</span> <span class="n">below</span><span class="p">)</span>
+  <span class="p">{</span>
+      <span class="s2">"subdomain"</span><span class="p">:</span> <span class="s2">"&lt;YOUR_ZENDESK_SUBDOMAIN&gt;"</span><span class="p">,</span>
+      <span class="s2">"username"</span><span class="p">:</span> <span class="s2">"&lt;ACCOUNT_EMAIL&gt;/token"</span><span class="p">,</span>
+      <span class="s2">"password"</span><span class="p">:</span> <span class="err">“</span><span class="o">&lt;</span><span class="no">GENERATED_TOKEN</span><span class="o">&gt;</span><span class="err">”</span><span class="p">,</span>
+      <span class="s2">"zat_latest"</span><span class="p">:</span> <span class="s2">"3.8.1"</span><span class="p">,</span>
+      <span class="s2">"zat_update_check"</span><span class="p">:</span> <span class="s2">"2021-02-16"</span>
+  <span class="p">}</span></code></pre></figure>
+
+<p>Follow this link to install ZAT https://support.zendesk.com/hc/en-us/articles/4408822095642</p>
+
+<ul>
+  <li>To install packages yarn install</li>
+  <li>To build Css/style files &amp; assets ./bin/compile.rb</li>
+  <li>To run your theme preview zat theme preview (This is temporary deployment and will end once your local zat server stops)</li>
+  <li>To create an uploadable bundle</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Cd</span> <span class="o">..</span>
+<span class="n">zip</span> <span class="o">-</span><span class="n">vr</span> <span class="o">&lt;</span><span class="no">ZIP_FILE_NAME</span><span class="o">&gt;</span><span class="p">.</span><span class="nf">zip</span> <span class="o">&lt;</span><span class="no">YOUR_THEME_DIRECTORY</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">x</span> <span class="s2">"*/node_modules/*"</span>
+<span class="no">To</span> <span class="n">upload</span> <span class="n">a</span> <span class="n">permanent</span> <span class="n">them</span><span class="p">,</span> <span class="no">Go</span> <span class="n">to</span> <span class="n">https</span><span class="ss">:/</span><span class="o">/&lt;</span><span class="no">YOUR_ZENDESK_DOMAIN</span><span class="o">&gt;</span><span class="sr">/theming/</span><span class="n">workbench</span> <span class="n">and</span> <span class="n">upload</span> <span class="n">your</span> <span class="n">created</span> <span class="p">.</span><span class="nf">zip</span> <span class="n">file</span> <span class="o">&amp;</span> <span class="n">click</span> <span class="kp">public</span> <span class="k">in</span> <span class="n">the</span> <span class="n">menu</span></code></pre></figure>
+
+<p><strong>General Representations</strong></p>
+
+<p>I’ll add a couple of examples about the content of the theme and how to change that</p>
+
+<ul>
+  <li>
+    <p>For all the frontend related changes you’d find HandleBar files(<code class="language-plaintext highlighter-rouge">*.hbs</code>) in <code class="language-plaintext highlighter-rouge">/templates</code> directory and (<code class="language-plaintext highlighter-rouge">_*.scss</code>) files in <code class="language-plaintext highlighter-rouge">/styles</code> directory e.g. if you’d want to change things in footer you’ll have to change the contents of (<code class="language-plaintext highlighter-rouge">footer.hbs &amp; _footer.scss</code>) respectively</p>
+  </li>
+  <li>
+    <p>For adding new type of <code class="language-plaintext highlighter-rouge">settings/variables</code> you need to make changes in (<code class="language-plaintext highlighter-rouge">manifest.json</code> - For adding a new key/value) and (en-us.json - For adding a description of how it’s presented on the Zendesk admin panel)</p>
+  </li>
+  <li>
+    <p>For adding new assets and using them through settings you will add th assets file in <code class="language-plaintext highlighter-rouge">&lt;THEME_DIR/settings&gt;</code></p>
+  </li>
+</ul>
+:ET
